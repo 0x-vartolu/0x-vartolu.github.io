@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Hosny | Bug Hunter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-main: #ededed;
+            --text-muted: #a1a1aa;
+            --primary: #10b981; /* Neon Green */
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Gradients */
+        .bg-glow {
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            filter: blur(50px);
+            animation: float 10s infinite alternate;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 20px 50px;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+        }
+
+        /* Sections & Cards */
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .card span.date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Animation Classes */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--card-border);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+    </nav>
+
+    <div class="container">
+        <header class="hidden">
+            <h1>Mohamed Hosny</h1>
+            <p>Cybersecurity Enthusiast & Bug Hunter</p>
+            <p style="font-size: 0.9rem;">📍 Tanta, Egypt | 📧 <a href="mailto:m7mdhosny21@gmail.com" style="color: var(--primary); text-decoration: none;">m7mdhosny21@gmail.com</a></p>
+            <br>
+            <a href="#experience" class="btn">Explore My Work</a>
+        </header>
+
+        <section id="about" class="hidden">
+            <h2>About Me</h2>
+            <div class="card">
+                <p>Passionate about web security and actively sharpening skills through real-world targets on HackerOne. I have practical experience in vulnerability assessment and manual penetration testing, always hunting for the next logic flaw.</p>
+            </div>
+        </section>
+
+        <section id="experience" class="hidden">
+            <h2>Experience</h2>
+            <div class="card">
+                <h3>Bug Hunter @ HackerOne</h3>
+                <span class="date">01/2026 - Present | Remote</span>
+                <ul>
+                    <li>Conducted manual penetration testing on a wide range of web applications participating in public and private disclosure programs.</li>
+                    <li>Specialized in discovering logic vulnerabilities, with a focus on Insecure Direct Object References (IDOR) and Access Control flaws.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills" class="hidden">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Web Penetration Testing</span>
+                <span class="skill-tag">Network Penetration Testing</span>
+                <span class="skill-tag">Active Directory Attacks</span>
+                <span class="skill-tag">Linux & Network Basics</span>
+            </div>
+        </section>
+
+        <section id="education" class="hidden">
+            <h2>Education & Certifications</h2>
+            <div class="card">
+                <h3>Tanta University</h3>
+                <span class="date">Expected 07/2027</span>
+                <p style="margin-bottom: 15px;">Bachelor's degree in Computer Science.</p>
+                <h4 style="color: #fff; margin-bottom: 10px;">Courses & Training:</h4>
+                <div class="skills-container">
+                    <span class="skill-tag">eJPTv2</span>
+                    <span class="skill-tag">OSCP</span>
+                    <span class="skill-tag">eWPT & eWPTX</span>
+                    <span class="skill-tag">OSWA</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 Mohamed Hosny. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.hidden').forEach((element) => {
+            observer.observe(element);
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
