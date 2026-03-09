@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Hosny | Bug Hunter</title>
+    <title>Mohamed Hosny | Cybersecurity Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #0a0a0a;
             --text-main: #ededed;
             --text-muted: #a1a1aa;
-            --primary: #10b981; /* Neon Green */
+            --primary: #10b981; 
             --card-bg: rgba(255, 255, 255, 0.03);
             --card-border: rgba(255, 255, 255, 0.08);
         }
@@ -29,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background Gradients */
         .bg-glow {
             position: fixed;
             top: -20%;
@@ -47,7 +46,6 @@
             100% { transform: translate(50px, 50px); }
         }
 
-        /* Navbar */
         nav {
             display: flex;
             justify-content: center;
@@ -59,14 +57,16 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid var(--card-border);
+            flex-wrap: wrap;
         }
 
         nav a {
             color: var(--text-main);
             text-decoration: none;
-            margin: 0 15px;
+            margin: 5px 15px;
             font-weight: 600;
             transition: color 0.3s;
+            font-size: 0.9rem;
         }
 
         nav a:hover {
@@ -74,15 +74,14 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 100px 20px 50px;
+            padding: 120px 20px 50px;
         }
 
-        /* Hero Section */
         header {
             text-align: center;
-            padding: 80px 0 40px;
+            padding: 60px 0 40px;
         }
 
         header h1 {
@@ -95,11 +94,19 @@
             -webkit-text-fill-color: transparent;
         }
 
+        header h2 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            border: none;
+            padding: 0;
+        }
+
         header p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
         }
 
         .btn {
@@ -110,7 +117,14 @@
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
+            margin: 5px;
             transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
         }
 
         .btn:hover {
@@ -118,17 +132,17 @@
             box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
         }
 
-        /* Sections & Cards */
         section {
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
-        h2 {
+        .section-title {
             font-size: 2rem;
             margin-bottom: 30px;
             border-bottom: 1px solid var(--card-border);
             padding-bottom: 10px;
             display: inline-block;
+            color: #fff;
         }
 
         .card {
@@ -149,29 +163,36 @@
         .card h3 {
             color: var(--primary);
             margin-bottom: 10px;
+            font-size: 1.4rem;
         }
 
-        .card span.date {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            display: block;
-            margin-bottom: 15px;
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
         }
 
         ul {
             padding-left: 20px;
             color: var(--text-muted);
+            margin-bottom: 15px;
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
-        /* Skills Tags */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            margin-top: 15px;
         }
 
         .skill-tag {
@@ -189,7 +210,6 @@
             color: var(--primary);
         }
 
-        /* Animation Classes */
         .hidden {
             opacity: 0;
             transform: translateY(30px);
@@ -207,6 +227,14 @@
             color: var(--text-muted);
             border-top: 1px solid var(--card-border);
             margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        .contact-links a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -216,68 +244,166 @@
 
     <nav>
         <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
+        <a href="#skills">Skills & Expertise</a>
+        <a href="#experience">Experience & Education</a>
+        <a href="#projects">Projects & Writeups</a>
+        <a href="#contact">Contact</a>
     </nav>
 
     <div class="container">
         <header class="hidden">
             <h1>Mohamed Hosny</h1>
-            <p>Cybersecurity Enthusiast & Bug Hunter</p>
-            <p style="font-size: 0.9rem;">📍 Tanta, Egypt | 📧 <a href="mailto:m7mdhosny21@gmail.com" style="color: var(--primary); text-decoration: none;">m7mdhosny21@gmail.com</a></p>
-            <br>
-            <a href="#experience" class="btn">Explore My Work</a>
+            <h2>Cybersecurity Student | Bug Hunter</h2>
+            <p>Web security enthusiast specializing in manual penetration testing and bug bounty hunting. Actively discovering vulnerabilities in real-world applications with a focus on access control flaws, IDOR vulnerabilities, and logic bugs.</p>
+            <div>
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="#writeups" class="btn btn-outline">Writeups</a>
+                <a href="#contact" class="btn btn-outline">Contact</a>
+            </div>
         </header>
 
         <section id="about" class="hidden">
-            <h2>About Me</h2>
+            <h2 class="section-title">About Mohamed</h2>
             <div class="card">
-                <p>Passionate about web security and actively sharpening skills through real-world targets on HackerOne. I have practical experience in vulnerability assessment and manual penetration testing, always hunting for the next logic flaw.</p>
-            </div>
-        </section>
-
-        <section id="experience" class="hidden">
-            <h2>Experience</h2>
-            <div class="card">
-                <h3>Bug Hunter @ HackerOne</h3>
-                <span class="date">01/2026 - Present | Remote</span>
-                <ul>
-                    <li>Conducted manual penetration testing on a wide range of web applications participating in public and private disclosure programs.</li>
-                    <li>Specialized in discovering logic vulnerabilities, with a focus on Insecure Direct Object References (IDOR) and Access Control flaws.</li>
-                </ul>
+                <p>Mohamed Hosny is a cybersecurity student and bug bounty hunter from Egypt, dedicated to mastering web application security through hands-on vulnerability assessment and manual penetration testing.</p>
+                <br>
+                <p>His expertise centers on discovering access control vulnerabilities, particularly IDOR and logic flaws, across diverse web applications. Mohamed actively participates in vulnerability disclosure programs and continuously refines his testing methodologies through real-world security assessments.</p>
+                <br>
+                <p>Committed to the security community, he documents findings through detailed writeups and shares insights on web security techniques and exploitation strategies.</p>
             </div>
         </section>
 
         <section id="skills" class="hidden">
-            <h2>Technical Skills</h2>
-            <div class="skills-container">
-                <span class="skill-tag">Web Penetration Testing</span>
-                <span class="skill-tag">Network Penetration Testing</span>
-                <span class="skill-tag">Active Directory Attacks</span>
-                <span class="skill-tag">Linux & Network Basics</span>
-            </div>
-        </section>
+            <h2 class="section-title">Core Security Skills & Expertise</h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Security Domains</h3>
+                    <ul>
+                        <li><strong>Web Application PT:</strong> Manual testing focusing on client-side & server-side vulnerabilities.</li>
+                        <li><strong>Network PT:</strong> Infrastructure assessment and service enumeration techniques.</li>
+                        <li><strong>Bug Bounty Hunting:</strong> Participation in VDPs with documented findings.</li>
+                        <li><strong>Access Control Testing:</strong> Identification of privilege escalation and authorization bypass.</li>
+                        <li><strong>Vulnerability Assessment:</strong> Systematic identification and classification of weaknesses.</li>
+                    </ul>
+                </div>
 
-        <section id="education" class="hidden">
-            <h2>Education & Certifications</h2>
-            <div class="card">
-                <h3>Tanta University</h3>
-                <span class="date">Expected 07/2027</span>
-                <p style="margin-bottom: 15px;">Bachelor's degree in Computer Science.</p>
-                <h4 style="color: #fff; margin-bottom: 10px;">Courses & Training:</h4>
-                <div class="skills-container">
-                    <span class="skill-tag">eJPTv2</span>
-                    <span class="skill-tag">OSCP</span>
-                    <span class="skill-tag">eWPT & eWPTX</span>
-                    <span class="skill-tag">OSWA</span>
+                <div class="card">
+                    <h3>Vulnerabilities Mastered</h3>
+                    <div class="skills-container">
+                        <span class="skill-tag">IDOR</span>
+                        <span class="skill-tag">SQLi & Blind SQLi</span>
+                        <span class="skill-tag">XSS</span>
+                        <span class="skill-tag">Path Traversal</span>
+                        <span class="skill-tag">Access Control Bypass</span>
+                        <span class="skill-tag">Privilege Escalation</span>
+                        <span class="skill-tag">Business Logic Flaws</span>
+                    </div>
+                    
+                    <h3 style="margin-top: 20px;">Essential Tools</h3>
+                    <div class="skills-container">
+                        <span class="skill-tag">Burp Suite Pro</span>
+                        <span class="skill-tag">Nmap</span>
+                        <span class="skill-tag">Subfinder</span>
+                        <span class="skill-tag">Amass</span>
+                        <span class="skill-tag">Linux CLI Master</span>
+                        <span class="skill-tag">Custom Scripting</span>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <section id="experience" class="hidden">
+            <h2 class="section-title">Experience & Education</h2>
+            
+            <div class="card">
+                <h3>Bug Hunter — HackerOne</h3>
+                <p style="color: var(--text-muted); margin-bottom: 10px;">2026 – Present</p>
+                <ul>
+                    <li>Perform manual penetration testing on web applications participating in vulnerability disclosure programs.</li>
+                    <li>Specialize in logic bugs and IDOR vulnerability discovery.</li>
+                    <li>Write professional vulnerability reports with detailed reproduction steps.</li>
+                    <li>Track and validate security fixes across multiple programs.</li>
+                </ul>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Tanta University</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 10px;">Computer Science Degree — Expected 2027</p>
+                    <p>Pursuing comprehensive computer science education with specialized focus on cybersecurity principles, network security, and secure coding practices.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Certifications & Training</h3>
+                    <ul>
+                        <li><strong>eJPTv2:</strong> Foundational offensive security & practical PT.</li>
+                        <li><strong>OSCP (In Progress):</strong> Advanced PT, exploit development.</li>
+                        <li><strong>eWPT / eWPTX:</strong> Web application security & exploitation.</li>
+                        <li><strong>OSWA:</strong> Advanced web application PT & vulnerability research.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="hidden">
+            <h2 class="section-title">Projects</h2>
+            <p style="margin-bottom: 20px; color: var(--text-muted);">Hands-on security tools and methodologies developed through practical bug bounty hunting.</p>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Recon Automation Script</h3>
+                    <p>Developed a comprehensive automation tool that streamlines subdomain discovery and reconnaissance operations. Integrates multiple tools including Subfinder, Amass, and Nmap for efficient target enumeration.</p>
+                </div>
+                <div class="card">
+                    <h3>IDOR Vulnerability Lab</h3>
+                    <p>Created detailed documentation and exploitation methodology for Insecure Direct Object Reference vulnerabilities. Includes step-by-step analysis techniques and practical exploitation scenarios.</p>
+                </div>
+                <div class="card" style="grid-column: 1 / -1;">
+                    <h3>Web Security Testing Notes</h3>
+                    <p>Maintain comprehensive collection of personal testing methodologies, vulnerability patterns, and exploitation techniques used during active bug bounty hunting operations.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="writeups" class="hidden">
+            <h2 class="section-title">Writeups & Research</h2>
+            <div class="card">
+                <h3>Technical Blog</h3>
+                <p style="margin-bottom: 15px;">Documenting security findings and sharing detailed analysis of vulnerabilities discovered during bug bounty hunting and security research activities.</p>
+                <ul>
+                    <li>Bug bounty findings with full exploitation details.</li>
+                    <li>PortSwigger Web Security Academy lab solutions.</li>
+                    <li>TryHackMe and HackTheBox walkthroughs.</li>
+                    <li>Web security techniques and methodology research.</li>
+                    <li>Tool development and automation strategies.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="hidden">
+            <h2 class="section-title">Connect with Mohamed</h2>
+            <div class="card" style="text-align: center;">
+                <p style="margin-bottom: 20px;">Available for bug bounty programs, vulnerability assessment engagements, and cybersecurity opportunities. Open to collaboration and knowledge sharing within the security community.</p>
+                
+                <div style="font-size: 1.1rem; margin-bottom: 20px;">
+                    <p>📧 <a href="mailto:m7mdhosny21@gmail.com" style="color: var(--text-main); text-decoration: none;">m7mdhosny21@gmail.com</a></p>
+                    <p>📱 +20 1003269903</p>
+                    <p>📍 Tanta, Egypt</p>
+                </div>
+
+                <div class="contact-links">
+                    <a href="#">GitHub</a> | 
+                    <a href="#">LinkedIn</a> | 
+                    <a href="#">HackerOne</a>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <footer>
-        <p>© 2026 Mohamed Hosny. All rights reserved.</p>
+        <p>© Mohamed Hosny – Cybersecurity Portfolio | m7mdhosny21@gmail.com</p>
     </footer>
 
     <script>
@@ -300,13 +426,14 @@
             observer.observe(element);
         });
 
-        // Smooth scroll for nav links
-        document.querySelectorAll('nav a').forEach(anchor => {
+        document.querySelectorAll('nav a, header a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
