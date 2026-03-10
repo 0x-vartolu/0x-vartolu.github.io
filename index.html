@@ -1,442 +1,363 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohamed Hosny | Cybersecurity Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0a0a0a;
-            --text-main: #ededed;
-            --text-muted: #a1a1aa;
-            --primary: #10b981; 
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(255, 255, 255, 0.08);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        .bg-glow {
-            position: fixed;
-            top: -20%;
-            left: -10%;
-            width: 50vw;
-            height: 50vw;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(0,0,0,0) 70%);
-            z-index: -1;
-            filter: blur(50px);
-            animation: float 10s infinite alternate;
-        }
-        
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            padding: 20px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--card-border);
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin: 5px 15px;
-            font-weight: 600;
-            transition: color 0.3s;
-            font-size: 0.9rem;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 120px 20px 50px;
-        }
-
-        header {
-            text-align: center;
-            padding: 60px 0 40px;
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #fff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header h2 {
-            font-size: 1.5rem;
-            color: var(--text-main);
-            margin-bottom: 15px;
-            border: none;
-            padding: 0;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: var(--primary);
-            color: #000;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            margin: 5px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
-        }
-
-        section {
-            margin-bottom: 80px;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid var(--card-border);
-            padding-bottom: 10px;
-            display: inline-block;
-            color: #fff;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(16, 185, 129, 0.4);
-        }
-
-        .card h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        ul {
-            padding-left: 20px;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--card-border);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-        }
-
-        .skill-tag:hover {
-            background: rgba(16, 185, 129, 0.1);
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .hidden {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-muted);
-            border-top: 1px solid var(--card-border);
-            margin-top: 40px;
-            font-size: 0.9rem;
-        }
-
-        .contact-links a {
-            color: var(--primary);
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 600;
-        }
-    </style>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="bg-glow"></div>
+    <!-- Particles Background Placeholder -->
+    <div id="particles-js"></div>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills & Expertise</a>
-        <a href="#experience">Experience & Education</a>
-        <a href="#projects">Projects & Writeups</a>
-        <a href="#contact">Contact</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#home" class="logo"><span class="terminal-prompt">&gt;</span> mhosny<span class="cursor">_</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#writeups">Writeups</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
     </nav>
 
-    <div class="container">
-        <header class="hidden">
-            <h1>Mohamed Hosny</h1>
-            <h2>Cybersecurity Student | Bug Hunter</h2>
-            <p>Web security enthusiast specializing in manual penetration testing and bug bounty hunting. Actively discovering vulnerabilities in real-world applications with a focus on access control flaws, IDOR vulnerabilities, and logic bugs.</p>
-            <div>
-                <a href="#projects" class="btn">View Projects</a>
-                <a href="#writeups" class="btn btn-outline">Writeups</a>
-                <a href="#contact" class="btn btn-outline">Contact</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero section">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="Mohamed Hosny">Mohamed Hosny</h1>
+            <h2 class="role">Cybersecurity Student | <span class="highlight">Bug Hunter</span></h2>
+            <p class="hero-desc">
+                Cybersecurity enthusiast specializing in <span class="highlight">Web Application Security</span> and Bug Bounty hunting, with practical experience discovering vulnerabilities on real-world targets.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary"><i class="fas fa-terminal"></i> View Projects</a>
+                <a href="#writeups" class="btn btn-secondary"><i class="fas fa-book-dead"></i> Writeups</a>
+                <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact</a>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <section id="about" class="hidden">
-            <h2 class="section-title">About Mohamed</h2>
-            <div class="card">
-                <p>Mohamed Hosny is a cybersecurity student and bug bounty hunter from Egypt, dedicated to mastering web application security through hands-on vulnerability assessment and manual penetration testing.</p>
-                <br>
-                <p>His expertise centers on discovering access control vulnerabilities, particularly IDOR and logic flaws, across diverse web applications. Mohamed actively participates in vulnerability disclosure programs and continuously refines his testing methodologies through real-world security assessments.</p>
-                <br>
-                <p>Committed to the security community, he documents findings through detailed writeups and shares insights on web security techniques and exploitation strategies.</p>
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container border-box">
+            <div class="section-title">
+                <h2><span class="terminal-prompt">$</span> cat about.txt</h2>
+                <div class="underline"></div>
             </div>
-        </section>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I am a cybersecurity student and bug bounty hunter from Egypt with hands-on experience in vulnerability assessment and manual penetration testing. I focus on discovering access control vulnerabilities such as <span class="highlight">IDOR</span> and <span class="highlight">logic flaws</span>.
+                    </p>
+                    <p>
+                        I actively participate in bug bounty programs and continuously improve my web security skills through real-world testing. My goal is to secure the digital landscape one system at a time while expanding my knowledge of offensive security.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-bug highlight"></i>
+                        <h3>Bug Bounty</h3>
+                        <p>Active Hunter</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-shield-alt highlight"></i>
+                        <h3>Web Sec</h3>
+                        <p>Specialization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="skills" class="hidden">
-            <h2 class="section-title">Core Security Skills & Expertise</h2>
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <div class="section-title">
+                <h2><span class="terminal-prompt">$</span> ./skills.sh</h2>
+                <div class="underline"></div>
+            </div>
             
-            <div class="grid-2">
-                <div class="card">
-                    <h3>Security Domains</h3>
-                    <ul>
-                        <li><strong>Web Application PT:</strong> Manual testing focusing on client-side & server-side vulnerabilities.</li>
-                        <li><strong>Network PT:</strong> Infrastructure assessment and service enumeration techniques.</li>
-                        <li><strong>Bug Bounty Hunting:</strong> Participation in VDPs with documented findings.</li>
-                        <li><strong>Access Control Testing:</strong> Identification of privilege escalation and authorization bypass.</li>
-                        <li><strong>Vulnerability Assessment:</strong> Systematic identification and classification of weaknesses.</li>
+            <div class="skills-wrapper">
+                <div class="skills-category">
+                    <div class="category-header">
+                        <i class="fas fa-lock"></i>
+                        <h3>Security Skills</h3>
+                    </div>
+                    <ul class="skills-list">
+                        <li><i class="fas fa-check-circle"></i> Web Application Penetration Testing</li>
+                        <li><i class="fas fa-check-circle"></i> Network Penetration Testing</li>
+                        <li><i class="fas fa-check-circle"></i> Bug Bounty Hunting</li>
+                        <li><i class="fas fa-check-circle"></i> Vulnerability Assessment</li>
                     </ul>
                 </div>
 
-                <div class="card">
-                    <h3>Vulnerabilities Mastered</h3>
-                    <div class="skills-container">
-                        <span class="skill-tag">IDOR</span>
-                        <span class="skill-tag">SQLi & Blind SQLi</span>
-                        <span class="skill-tag">XSS</span>
-                        <span class="skill-tag">Path Traversal</span>
-                        <span class="skill-tag">Access Control Bypass</span>
-                        <span class="skill-tag">Privilege Escalation</span>
-                        <span class="skill-tag">Business Logic Flaws</span>
+                <div class="skills-category">
+                    <div class="category-header">
+                        <i class="fas fa-wrench"></i>
+                        <h3>Tools & Technologies</h3>
                     </div>
+                    <div class="tools-grid">
+                        <div class="tool-tag">Burp Suite</div>
+                        <div class="tool-tag">Nmap</div>
+                        <div class="tool-tag">Subfinder</div>
+                        <div class="tool-tag">Amass</div>
+                        <div class="tool-tag">Linux</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section id="experience" class="timeline-section section">
+        <div class="container">
+            <div class="section-title">
+                <h2><span class="terminal-prompt">$</span> history | grep experience</h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="timeline-grid">
+                <!-- Experience -->
+                <div class="timeline-column">
+                    <h3 class="column-title"><i class="fas fa-briefcase"></i> Experience</h3>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Bug Hunter</h4>
+                            <span class="company">HackerOne</span>
+                            <span class="date">2026 - Present</span>
+                            <ul>
+                                <li>Perform manual penetration testing on web applications participating in vulnerability disclosure programs.</li>
+                                <li>Focus on logic bugs and IDOR vulnerabilities.</li>
+                                <li>Write professional vulnerability reports and communicate with triage teams.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education & Certifications -->
+                <div class="timeline-column">
+                    <h3 class="column-title"><i class="fas fa-graduation-cap"></i> Education & Certs</h3>
                     
-                    <h3 style="margin-top: 20px;">Essential Tools</h3>
-                    <div class="skills-container">
-                        <span class="skill-tag">Burp Suite Pro</span>
-                        <span class="skill-tag">Nmap</span>
-                        <span class="skill-tag">Subfinder</span>
-                        <span class="skill-tag">Amass</span>
-                        <span class="skill-tag">Linux CLI Master</span>
-                        <span class="skill-tag">Custom Scripting</span>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Computer Science</h4>
+                            <span class="company">Tanta University, Egypt</span>
+                            <span class="date">Expected Graduation: 2027</span>
+                        </div>
+                    </div>
+
+                    <div class="certifications-grid mt-4">
+                        <div class="cert-card">
+                            <i class="fas fa-award highlight"></i>
+                            <h4>eJPTv2</h4>
+                            <span class="status completed">Achieved</span>
+                        </div>
+                        <div class="cert-card">
+                            <i class="fas fa-award highlight"></i>
+                            <h4>eWPT / eWPTX</h4>
+                            <span class="status completed">Achieved</span>
+                        </div>
+                        <div class="cert-card">
+                            <i class="fas fa-award highlight"></i>
+                            <h4>OSWA</h4>
+                            <span class="status completed">Achieved</span>
+                        </div>
+                        <div class="cert-card">
+                            <i class="fas fa-spinner fa-spin highlight"></i>
+                            <h4>OSCP</h4>
+                            <span class="status in-progress">In Progress</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="experience" class="hidden">
-            <h2 class="section-title">Experience & Education</h2>
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <div class="section-title">
+                <h2><span class="terminal-prompt">$</span> ls -la ./projects</h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Project 1 -->
+                <div class="card project-card border-box">
+                    <div class="card-header">
+                        <div class="folder-icon"><i class="far fa-folder-open"></i></div>
+                        <div class="links">
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Recon Automation Script</h3>
+                        <p>A sophisticated tool that automates subdomain discovery, port scanning, and general reconnaissance using aggregated sources.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="tech-tag">Bash</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card project-card border-box">
+                    <div class="card-header">
+                        <div class="folder-icon"><i class="fas fa-unlock-alt"></i></div>
+                        <div class="links">
+                            <a href="#" aria-label="View Project"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>IDOR Vulnerability Lab</h3>
+                        <p>A carefully constructed environment for step-by-step analysis and exploitation of complex Insecure Direct Object Reference vulnerabilities.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="tech-tag">Web Sec</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">PHP/MySQL</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card project-card border-box">
+                    <div class="card-header">
+                        <div class="folder-icon"><i class="far fa-file-code"></i></div>
+                        <div class="links">
+                            <a href="#" aria-label="View Project"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Web Security Testing Notes</h3>
+                        <p>A comprehensive collection of personal notes, payloads, and methodologies curated during active bug hunting engagements.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="tech-tag">Documentation</span>
+                        <span class="tech-tag">Methodology</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Writeups Section -->
+    <section id="writeups" class="writeups section">
+        <div class="container">
+            <div class="section-title">
+                <h2><span class="terminal-prompt">$</span> tail -f /var/log/writeups</h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="writeup-list">
+                <article class="writeup-item">
+                    <div class="writeup-meta">
+                        <span class="date">Oct 15, 2026</span>
+                        <span class="category">Bug Bounty</span>
+                    </div>
+                    <h3><a href="#">Account Takeover chaining IDOR and Logic Flaw</a></h3>
+                    <p>Detailed breakdown of how an Insecure Direct Object Reference (IDOR) on a password reset endpoint led to a full account takeover on a private program.</p>
+                    <a href="#" class="read-more">Read Writeup <i class="fas fa-arrow-right"></i></a>
+                </article>
+
+                <article class="writeup-item">
+                    <div class="writeup-meta">
+                        <span class="date">Sep 22, 2026</span>
+                        <span class="category">PortSwigger Labs</span>
+                    </div>
+                    <h3><a href="#">Bypassing Advanced Access Controls</a></h3>
+                    <p>Walkthrough of complex access control bypass techniques inspired by PortSwigger Academy challenges and real-world scenarios.</p>
+                    <a href="#" class="read-more">Read Writeup <i class="fas fa-arrow-right"></i></a>
+                </article>
+
+                <article class="writeup-item">
+                    <div class="writeup-meta">
+                        <span class="date">Aug 05, 2026</span>
+                        <span class="category">HTB / TryHackMe</span>
+                    </div>
+                    <h3><a href="#">Box Walkthrough: Mastering Web Exploitation</a></h3>
+                    <p>A comprehensive guide on exploiting misconfigured web applications, from initial foothold to privilege escalation in a synthetic environment.</p>
+                    <a href="#" class="read-more">Read Writeup <i class="fas fa-arrow-right"></i></a>
+                </article>
+            </div>
             
-            <div class="card">
-                <h3>Bug Hunter — HackerOne</h3>
-                <p style="color: var(--text-muted); margin-bottom: 10px;">2026 – Present</p>
-                <ul>
-                    <li>Perform manual penetration testing on web applications participating in vulnerability disclosure programs.</li>
-                    <li>Specialize in logic bugs and IDOR vulnerability discovery.</li>
-                    <li>Write professional vulnerability reports with detailed reproduction steps.</li>
-                    <li>Track and validate security fixes across multiple programs.</li>
-                </ul>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline">View All Writeups</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container border-box">
+            <div class="section-title text-center">
+                <h2><span class="terminal-prompt">$</span> nc -lvnp 4444</h2>
+                <div class="underline mx-auto"></div>
+                <p class="mt-2">Waiting for incoming connections...</p>
             </div>
 
-            <div class="grid-2">
-                <div class="card">
-                    <h3>Tanta University</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 10px;">Computer Science Degree — Expected 2027</p>
-                    <p>Pursuing comprehensive computer science education with specialized focus on cybersecurity principles, network security, and secure coding practices.</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope highlight"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:m7mdhosny21@gmail.com">m7mdhosny21@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt highlight"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+201003269903">+20 1003269903</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt highlight"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Tanta, Egypt</p>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="card">
-                    <h3>Certifications & Training</h3>
-                    <ul>
-                        <li><strong>eJPTv2:</strong> Foundational offensive security & practical PT.</li>
-                        <li><strong>OSCP (In Progress):</strong> Advanced PT, exploit development.</li>
-                        <li><strong>eWPT / eWPTX:</strong> Web application security & exploitation.</li>
-                        <li><strong>OSWA:</strong> Advanced web application PT & vulnerability research.</li>
-                    </ul>
+
+                <div class="social-links">
+                    <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank" aria-label="HackerOne"><i class="fas fa-bug"></i></a> <!-- Assuming bug icon for H1 -->
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="projects" class="hidden">
-            <h2 class="section-title">Projects</h2>
-            <p style="margin-bottom: 20px; color: var(--text-muted);">Hands-on security tools and methodologies developed through practical bug bounty hunting.</p>
-            
-            <div class="grid-2">
-                <div class="card">
-                    <h3>Recon Automation Script</h3>
-                    <p>Developed a comprehensive automation tool that streamlines subdomain discovery and reconnaissance operations. Integrates multiple tools including Subfinder, Amass, and Nmap for efficient target enumeration.</p>
-                </div>
-                <div class="card">
-                    <h3>IDOR Vulnerability Lab</h3>
-                    <p>Created detailed documentation and exploitation methodology for Insecure Direct Object Reference vulnerabilities. Includes step-by-step analysis techniques and practical exploitation scenarios.</p>
-                </div>
-                <div class="card" style="grid-column: 1 / -1;">
-                    <h3>Web Security Testing Notes</h3>
-                    <p>Maintain comprehensive collection of personal testing methodologies, vulnerability patterns, and exploitation techniques used during active bug bounty hunting operations.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="writeups" class="hidden">
-            <h2 class="section-title">Writeups & Research</h2>
-            <div class="card">
-                <h3>Technical Blog</h3>
-                <p style="margin-bottom: 15px;">Documenting security findings and sharing detailed analysis of vulnerabilities discovered during bug bounty hunting and security research activities.</p>
-                <ul>
-                    <li>Bug bounty findings with full exploitation details.</li>
-                    <li>PortSwigger Web Security Academy lab solutions.</li>
-                    <li>TryHackMe and HackTheBox walkthroughs.</li>
-                    <li>Web security techniques and methodology research.</li>
-                    <li>Tool development and automation strategies.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="contact" class="hidden">
-            <h2 class="section-title">Connect with Mohamed</h2>
-            <div class="card" style="text-align: center;">
-                <p style="margin-bottom: 20px;">Available for bug bounty programs, vulnerability assessment engagements, and cybersecurity opportunities. Open to collaboration and knowledge sharing within the security community.</p>
-                
-                <div style="font-size: 1.1rem; margin-bottom: 20px;">
-                    <p>📧 <a href="mailto:m7mdhosny21@gmail.com" style="color: var(--text-main); text-decoration: none;">m7mdhosny21@gmail.com</a></p>
-                    <p>📱 +20 1003269903</p>
-                    <p>📍 Tanta, Egypt</p>
-                </div>
-
-                <div class="contact-links">
-                    <a href="#">GitHub</a> | 
-                    <a href="#">LinkedIn</a> | 
-                    <a href="#">HackerOne</a>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
+    <!-- Footer -->
     <footer>
-        <p>© Mohamed Hosny – Cybersecurity Portfolio | m7mdhosny21@gmail.com</p>
+        <div class="container text-center">
+            <p>&copy; 2026 Mohamed Hosny – Cybersecurity Portfolio</p>
+            <p class="crypto-text">Built with <i class="fas fa-coffee highlight"></i> and <i class="fas fa-code highlight"></i></p>
+        </div>
     </footer>
 
-    <script>
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.hidden').forEach((element) => {
-            observer.observe(element);
-        });
-
-        document.querySelectorAll('nav a, header a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if(this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-
+    <!-- Scripts -->
+    <!-- Particles.js for hacker background effect -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
